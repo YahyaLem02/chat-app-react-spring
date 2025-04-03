@@ -1,0 +1,707 @@
+/* Conteneur principal */
+.room-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f3f3f3;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 650px; /* Réduis légèrement pour un design compact */
+    background: linear-gradient(145deg, #1e293b, #334155); /* Dégradé moderne bleu-gris */
+    color: white;
+    padding: 20px;
+    overflow-y: auto;
+    flex-shrink: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre plus douce */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-right: 1px solid rgba(255, 255, 255, 0.1); /* Ligne subtile */
+}
+
+/* Header de la Sidebar */
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e2e8f0; /* Texte plus clair */
+    text-transform: uppercase;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center; /* Centrer horizontalement */
+    align-items: center; /* Centrer verticalement */
+    padding: 10px 0; /* Espacement autour du logo */
+    border-bottom: 1px solid #334155; /* Séparation avec la liste des Rooms */
+}
+
+.sidebar-logo {
+    max-width: 200px; /* Limite la largeur */
+    height: auto; /* Préserve les proportions */
+    object-fit: contain; /* Adapte l'image sans la déformer */
+}
+
+
+/* Liste des Rooms */
+
+.room-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Plus d'espace entre les items */
+}
+
+/* Room Items */
+.room-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px; /* Plus d'espace interne */
+    background: linear-gradient(135deg, #64748b, #475569); /* Dégradé bleu-gris */
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+
+/* Room Item - Active */
+.room-item.active {
+    background-color: #ffffff; /* Violet doux et moderne */
+    color: #ffffff; /* Texte blanc pour contraste */
+    transform: scale(1.05); /* Mise en avant plus marquée */
+    border: 2px solid #ffffff; /* Bordure légèrement plus foncée */
+    transition: all 0.3s ease; /* Transition fluide */
+}
+
+/* Room Profile Image */
+.room-profile {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Bordure subtile */
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    margin-top: auto; /* Place le footer en bas */
+    text-align: center;
+}
+
+.sidebar-footer button {
+    background: linear-gradient(145deg, #14b8a6, #0f766e); /* Vert moderne */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+/* Section Chat */
+.chat-section {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #f8f9fa;
+}
+
+/* Chat Header */
+.chat-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Sépare les éléments */
+    padding: 15px 20px;
+    background: linear-gradient(145deg, #1e293b, #334155); /* Dégradé bleu-gris moderne */
+    color: #e2e8f0; /* Texte clair */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    border-bottom: 5px;
+}
+
+.chat-header-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10%; /* Forme légèrement arrondie, pas un cercle complet */
+    object-fit: cover;
+    border: 2px solid #3b82f6; /* Bordure subtile en bleu */
+    margin-right: 15px;
+}
+
+.chat-header h3 {
+    flex-grow: 1;
+    margin: 0;
+    font-size: 1.5rem; /* Texte légèrement plus grand */
+    font-weight: 600; /* Semi-gras */
+    color: #e2e8f0; /* Couleur principale pour le texte */
+}
+
+.chat-header button {
+    background-color: #e11d48; /* Rouge vif pour contraster */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacement entre l'icône et le texte */
+}
+
+.chat-header button:hover {
+    background-color: #be123c; /* Rouge plus foncé */
+    transform: translateY(-2px); /* Légère élévation */
+}
+
+.chat-header button i {
+    font-size: 1rem; /* Taille de l'icône */
+}
+
+.btn-danger {
+    background-color: #e74c3c; /* Rouge vif */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espace entre l'icône et le texte */
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-danger i {
+    font-size: 1.2rem; /* Taille de l'icône */
+}
+
+
+/* Conteneur des Messages */
+.messages-container {
+    flex: 1;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    background: linear-gradient(145deg, #1e293b, #334155); /* Dégradé bleu-gris */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+}
+
+/* Séparateur de Date */
+.date-separator {
+    text-align: center;
+    margin: 10px 0;
+    color: #ffffff; /* Gris clair pour contraste */
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Messages Généraux */
+.message {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%; /* Plus de largeur disponible */
+    word-wrap: break-word;
+    margin-bottom: 10px;
+    padding: 10px 15px; /* Plus de padding pour aérer */
+    border-radius: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Messages Sortants (Vos Messages) */
+.message-outgoing {
+    margin-left: auto;
+    background-color: #2563eb; /* Bleu vif */
+    color: #ffffff; /* Texte blanc */
+    text-align: left;
+    border-radius: 12px 12px 0 12px; /* Coins arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+/* Messages Entrants (Messages des Autres) */
+.message-incoming {
+    margin-right: auto;
+    background-color: #f1f5f9; /* Gris clair */
+    color: #1e293b; /* Texte bleu foncé */
+    border: 1px solid #cbd5e1; /* Bordure subtile */
+    text-align: left;
+    border-radius: 12px 12px 12px 0; /* Coins arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Ombre douce */
+}
+
+/* Nom d'utilisateur (Pour Messages Entrants) */
+.message-username {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #3b82f6; /* Bleu vif */
+    margin-bottom: 5px;
+}
+
+/* Contenu des Messages */
+.message p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Heure du Message */
+.message-time {
+    font-size: 0.75rem;
+    color: #94a3b8; /* Gris clair */
+    text-align: right;
+    margin-top: 5px;
+    display: block;
+}
+
+
+.user-list {
+    list-style: none; /* Retire les puces */
+    padding: 0;
+    margin: 0;
+}
+
+.user-item {
+    display: flex; /* Aligne les enfants horizontalement */
+    justify-content: space-between; /* Place l'espace entre les éléments */
+    align-items: center; /* Centre verticalement */
+    padding: 10px; /* Espacement interne */
+    border-bottom: 1px solid #ddd; /* Ligne de séparation (optionnel) */
+    gap: 10px; /* Espace entre les éléments */
+}
+
+.user-item:last-child {
+    border-bottom: none; /* Pas de bordure pour le dernier élément */
+}
+
+.user-item span {
+    flex: 1; /* Le texte prend tout l'espace disponible */
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Input Section */
+.input-section {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    resize: none;
+    outline: none;
+}
+
+.send-button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.send-button:hover {
+    transform: scale(1.05);
+}
+
+/* Overlay du Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fond sombre semi-transparent */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Contenu principal du Modal */
+.modal-content {
+    background-color: #ffffff; /* Fond blanc */
+    color: #2c3e50; /* Texte sombre */
+    width: 90%;
+    max-width: 500px; /* Taille maximale */
+    border-radius: 12px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    padding: 20px 30px; /* Espacement interne */
+    text-align: center;
+    position: relative;
+}
+
+/* Titre du Modal */
+.modal-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+/* Corps du Modal */
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacement vertical */
+    text-align: left;
+}
+
+.modal-item {
+    background-color: #ecf0f1; /* Fond gris clair */
+    padding: 10px 15px;
+    border-radius: 8px; /* Coins arrondis */
+}
+
+.modal-item-title {
+    font-size: 0.9rem;
+    color: #95a5a6; /* Gris clair pour le titre */
+}
+
+.modal-item-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+/* Bouton Fermer */
+.modal-action-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1abc9c; /* Vert */
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-action-button:hover {
+    background-color: #1e8449; /* Vert foncé au survol */
+}
+
+/* Bouton de fermeture (croix) */
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #2c3e50;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+
+/* Style pour chaque élément de détail */
+.modal-item {
+    background-color: #ecf0f1; /* Fond gris clair */
+    padding: 10px 15px;
+    border-radius: 8px; /* Coins arrondis */
+    color: #2c3e50; /* Texte sombre */
+    margin-bottom: 10px; /* Espacement entre les éléments */
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+/* Titre de chaque champ */
+.modal-item-title {
+    font-size: 0.9rem;
+    font-weight: normal;
+    color: #95a5a6; /* Gris clair */
+}
+
+/* Valeur des détails */
+.modal-item-value {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #2c3e50; /* Texte principal */
+}
+
+.date-separator {
+    text-align: center;
+    margin: 10px 0;
+    color: #555;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.message-time {
+    color: #aaa;
+    font-size: 0.75rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.join-button {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.join-button:hover {
+    background-color: #1c7ed6;
+}
+.room-profile-large {
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+.details-button {
+    margin-top: 5px;
+    background: #0f766e;
+}
+
+/* Overlay pour les modals */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond sombre semi-transparent */
+    backdrop-filter: blur(4px); /* Flou d'arrière-plan */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Premier plan */
+}
+
+/* Conteneur principal */
+.modal-container {
+    background-color: #ffffff; /* Fond blanc */
+    border-radius: 8px; /* Coins arrondis */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    width: 100%;
+    max-width: 500px; /* Taille maximale */
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* En-tête de la modal */
+.modal-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 1px solid #eee; /* Séparateur */
+    padding-bottom: 10px;
+}
+
+/* Corps de la modal */
+.modal-body {
+    margin: 1rem 0;
+}
+
+/* Image centrée et stylisée */
+.modal-body img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 10px auto;
+    display: block;
+}
+
+/* Informations dans la modal */
+.modal-info {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.modal-info h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.modal-info p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+.modal-info p strong {
+    color: #000;
+}
+
+.modal-footer {
+    display: flex; /* Aligne les boutons horizontalement */
+    justify-content: flex-end; /* Les pousse à droite */
+    gap: 10px; /* Espace uniforme entre les boutons */
+    margin-top: 15px; /* Espace avec le contenu au-dessus */
+    padding: 10px 0; /* Espacement vertical */
+    border-top: 1px solid #e0e0e0; /* Séparateur subtil */
+}
+
+/* Style des boutons */
+.modal-footer .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* Boutons spécifiques */
+.modal-footer .btn-save {
+    background-color: #4caf50; /* Vert vif */
+}
+
+.modal-footer .btn-cancel {
+    background-color: #f44336; /* Rouge vif */
+}
+
+.modal-footer .btn-closEEe {
+    background-color: #607d8b; /* Gris neutre */
+}
+
+/* Hover Effects */
+
+
+
+
+/* Champs d'entrée */
+.input-field {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.input-field:focus {
+    border-color: #2196f3;
+    outline: none;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+
+.search-container {
+    padding: 10px;
+}
+
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #888;
+}
+
+.search-input {
+    width: 100%;
+    padding: 8px 8px 8px 32px; /* Ajout d'un padding à gauche pour l'icône */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.welcome-message,
+.no-room-selected-message,
+.non-member-message,
+.no-messages-message {
+    text-align: center;
+    margin: 20px;
+    color: #555;
+}
+
+.welcome-message h2,
+.no-room-selected-message h3,
+.non-member-message h3,
+.no-messages-message h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.delete-button {
+    background: #e74c3c; /* Couleur rouge */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background: #c0392b;
+}
+
+.delete-button .icon {
+    margin-right: 5px;
+}
+.btn-logout {
+    background-color: #f44336; /* Rouge pour signaler une action */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espace entre l'icône et le texte */
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: #d32f2f; /* Rouge plus foncé au survol */
+}
+.button-group {
+    display: flex;
+    gap: 15px; /* Ajoute un espacement de 15px entre les boutons */
+}
+
+.button-group button {
+    flex: 1; /* Optionnel : Ajuste la largeur pour les rendre uniformes */
+}
+
+
+
+
+
+
+
