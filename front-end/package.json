@@ -19,7 +19,7 @@
     "clsx": "^2.1.1",
     "crypto-browserify": "^3.12.1",
     "https-browserify": "^1.0.0",
-    "lucide-react": "^0.462.0",
+    "lucide-react": "^0.485.0",
     "mdb-react-ui-kit": "^6.2.0",
     "os-browserify": "^0.3.0",
     "path-browserify": "^1.0.1",
